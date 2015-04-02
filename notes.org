@@ -1,0 +1,19 @@
+* NoteBook
+** <2015-04-02 Thu 23:19>
+*** DONE Add references
+    CLOSED: [2015-04-02 Thu 23:27]
+    :LOGBOOK:
+    CLOCK: [2015-04-02 Thu 23:20]--[2015-04-02 Thu 23:27] =>  0:07
+    :END:
+*** TODO Test air-logger node code on edison
+    :LOGBOOK:
+    CLOCK: [2015-04-02 Thu 23:28]--[2015-04-03 Fri 01:27] =>  1:59
+    + get circuit in place <2015-04-02 Thu 23:28>
+    + testing air-logger.js on edison <2015-04-02 Thu 23:44>
+    + dbugging the script <2015-04-03 Fri 00:18>
+    + testing if sensor is working/connected properly <2015-04-03 Fri 00:57>
+    :END:
+*** Links/Pointers
+**** http://gizmodo.com/the-guerrilla-movement-to-deploy-sensors-all-over-your-1691845395
+**** http://datacanvas.org/sense-your-city/
+**** http://datacanvas.org/sense-your-city/diy-sensor-info/
