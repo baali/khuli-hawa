@@ -1,0 +1,8 @@
+* Project Khuli-Hawa:खुली हवा
+  Log Air quality+Noise level data while walking through different parts of the city.
+
+* References
+** http://www.howmuchsnow.com/arduino/airquality/
+** http://arduinodev.woofex.net/2012/12/01/standalone-sharp-dust-sensor/
+** http://www.mentalmunition.com/2013/10/measure-air-pollution-in-your-home-or.html
+** http://smartairfilters.com/en.html
