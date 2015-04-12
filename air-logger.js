@@ -2,6 +2,10 @@
 // https://github.com/intel-iot-devkit/mraa/blob/master/examples/javascript/
 
 var m = require('mraa'); //require mraa
+var config = require('./config')
+var querystring = require('querystring');
+var http = require('http');
+
 console.log('MRAA Version: ' + m.getVersion()); //write the mraa version to the console
 var sleep = require("sleep");
 var myLed = new m.Gpio(8); //LED hooked up to digital pin 13 (or built in pin on Galileo Gen1 & Gen2)
@@ -33,6 +37,38 @@ function tempLoop()
   analogValue = analogPin0.read();
   console.log("Raw Signal Value: ", analogValue);
   console.log("Temprature(C) :", analogValue *  0.48828125);
+  var data = querystring.stringify({
+    username: config.username,
+    password: config.password,
+    type: "temprature",
+    value: analogValue *  0.48828125,
+    timestamp: Date()
+  });
+  console.log(data)
+  var options = {
+    host: config.host,
+    port: config.port,
+    path: config.path,
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': Buffer.byteLength(data)
+    }
+  };
+
+  var req = http.request(options, function(res) {
+    res.setEncoding('utf8');
+    res.on('data', function(chunk) {
+      console.log("body: " + chunk);
+    });
+  });
+  req.on('error', function (error) {
+    console.log("err in request");
+    console.log(error);
+  });
+  req.write(data);
+  req.end();
+
   sleep.usleep(1000);
   setTimeout(tempLoop,1000); //call the indicated function after 1 second (1000 milliseconds)
 }
